@@ -270,7 +270,9 @@ void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
 		{
 			pBasePlayerWeapon->m_CBodyComponent()->m_pSceneNode()->GetSkeletonInstance()->m_modelState().m_MeshGroupMask() = 2;
 		}
-		
+
+
+
 		if(weaponId == 59 || weaponId == 42)
 		{
 			auto knife_idx = g_PlayerKnifes.find(steamid);
@@ -287,7 +289,7 @@ void CEntityListener::OnEntitySpawned(CEntityInstance* pEntity)
 	});
 }
 
-CON_COMMAND_F(skin, "Edit skin", FCVAR_CLIENT_CAN_EXECUTE)
+CON_COMMAND_F(skin, "Skinuri", FCVAR_CLIENT_CAN_EXECUTE)
 {
 	if(context.GetPlayerSlot() == -1)return;
 	CCSPlayerController* pPlayerController = (CCSPlayerController*)g_pEntitySystem->GetBaseEntity((CEntityIndex)(context.GetPlayerSlot().Get() + 1));
@@ -305,7 +307,7 @@ CON_COMMAND_F(skin, "Edit skin", FCVAR_CLIENT_CAN_EXECUTE)
 	
 	if(args.ArgC() == 1)
 	{
-		FnUTIL_ClientPrint(pPlayerController, 3, " \x04 [WS] \x01Nézd meg az https://ubec.hu/ws oldalt a paraméterek beállításához.",nullptr, nullptr, nullptr, nullptr);
+		FnUTIL_ClientPrint(pPlayerController, 3, " \x04 [SKIN] \x01Intra pe: http://skin.ymos.top/ ptr parametrii modificare skin",nullptr, nullptr, nullptr, nullptr);
 		return;
 	}
 	char buf[255] = {0};
@@ -313,7 +315,7 @@ CON_COMMAND_F(skin, "Edit skin", FCVAR_CLIENT_CAN_EXECUTE)
 	{
 		if(args.ArgC() != 5)
 		{
-			sprintf(buf, " \x04 [WS] \x01%s Négy paraméterre van szükséged egy kés skinjének módosításához a skin parancs segítségével!",pPlayerController->m_iszPlayerName());
+			sprintf(buf, " \x04 [SKIN] \x01%s Aveți nevoie de patru parametri pentru a modifica skinul cuțitului folosind comanda skin.!",pPlayerController->m_iszPlayerName());
 			FnUTIL_ClientPrint(pPlayerController, 3, buf,nullptr, nullptr, nullptr, nullptr);
 			return;
 		}
@@ -323,7 +325,7 @@ CON_COMMAND_F(skin, "Edit skin", FCVAR_CLIENT_CAN_EXECUTE)
 	{
 		if(args.ArgC() != 4)
 		{
-			sprintf(buf, " \x04 [WS] \x01%s Három paraméterre van szükséged egy fegyver skinjének módosításához a skin parancs segítségével!",pPlayerController->m_iszPlayerName());
+			sprintf(buf, " \x04 [SKIN] \x01%s Aveți nevoie de trei parametri pentru a modifica skinul armei folosind comanda skin.!",pPlayerController->m_iszPlayerName());
 			FnUTIL_ClientPrint(pPlayerController, 3, buf,nullptr, nullptr, nullptr, nullptr);
 			return;
 		}
@@ -342,7 +344,7 @@ CON_COMMAND_F(skin, "Edit skin", FCVAR_CLIENT_CAN_EXECUTE)
 	//pItemServices->GiveNamedItem(weapon_name->second.c_str());
 	// g_pGameRules->PlayerRespawn(static_cast<CCSPlayerPawn*>(pPlayerPawn));
 	//META_CONPRINTF( "called by %lld\n", steamid);
-	sprintf(buf, " \x04 [WS] \x01Módosított skin: %d Seed: %d Kopottság: %f",g_PlayerSkins[steamid][weaponId].m_nFallbackPaintKit,g_PlayerSkins[steamid][weaponId].m_nFallbackSeed,g_PlayerSkins[steamid][weaponId].m_flFallbackWear);
+	sprintf(buf, " \x04 [SKIN] \x01Număr skin modificat:%d sablon:%d uzura:%f",g_PlayerSkins[steamid][weaponId].m_nFallbackPaintKit,g_PlayerSkins[steamid][weaponId].m_nFallbackSeed,g_PlayerSkins[steamid][weaponId].m_flFallbackWear);
 	FnUTIL_ClientPrint(pPlayerController, 3, buf,nullptr, nullptr, nullptr, nullptr);
 }
 
@@ -358,7 +360,7 @@ const char* Skin::GetLicense()
 
 const char* Skin::GetVersion()
 {
-	return "1.0.0";
+	return "1.0.3";
 }
 
 const char* Skin::GetDate()
@@ -373,12 +375,12 @@ const char* Skin::GetLogTag()
 
 const char* Skin::GetAuthor()
 {
-	return "宇宙遨游";
+	return "宇宙遨游 tradus de GSM-RO";
 }
 
 const char* Skin::GetDescription()
 {
-	return "武器皮肤插件";
+	return "Skinuri arme si cutite";
 }
 
 const char* Skin::GetName()
