@@ -325,7 +325,7 @@ CON_COMMAND_F(skin, "Skinuri", FCVAR_CLIENT_CAN_EXECUTE)
 	{
 		if(args.ArgC() != 4)
 		{
-			sprintf(buf, " \x07 [Skins] \x01%s, you need four parameters to modify the knife skin using the skin command!",pPlayerController->m_iszPlayerName());
+			sprintf(buf, " \x07 [Skins] \x01%s, you need three parameters to modify the weapon skin using the skin command!",pPlayerController->m_iszPlayerName());
 			FnUTIL_ClientPrint(pPlayerController, 3, buf,nullptr, nullptr, nullptr, nullptr);
 			return;
 		}
