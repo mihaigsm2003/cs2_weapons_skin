@@ -307,7 +307,7 @@ CON_COMMAND_F(skin, "Skinuri", FCVAR_CLIENT_CAN_EXECUTE)
 	
 	if(args.ArgC() == 1)
 	{
-		FnUTIL_ClientPrint(pPlayerController, 3, " \x04 [SKIN] \x01Intra pe: http://skin.ymos.top/ ptr parametrii modificare skin",nullptr, nullptr, nullptr, nullptr);
+		FnUTIL_ClientPrint(pPlayerController, 3, " \x07 [Skins] \x01Go to: https://skin.ld24.net/ for skin modification parameters.",nullptr, nullptr, nullptr, nullptr);
 		return;
 	}
 	char buf[255] = {0};
@@ -315,7 +315,7 @@ CON_COMMAND_F(skin, "Skinuri", FCVAR_CLIENT_CAN_EXECUTE)
 	{
 		if(args.ArgC() != 5)
 		{
-			sprintf(buf, " \x04 [SKIN] \x01%s Aveți nevoie de patru parametri pentru a modifica skinul cuțitului folosind comanda skin.!",pPlayerController->m_iszPlayerName());
+			sprintf(buf, " \x07 [Skins] \x01%s, you need four parameters to modify the knife skin using the skin command!",pPlayerController->m_iszPlayerName());
 			FnUTIL_ClientPrint(pPlayerController, 3, buf,nullptr, nullptr, nullptr, nullptr);
 			return;
 		}
@@ -325,7 +325,7 @@ CON_COMMAND_F(skin, "Skinuri", FCVAR_CLIENT_CAN_EXECUTE)
 	{
 		if(args.ArgC() != 4)
 		{
-			sprintf(buf, " \x04 [SKIN] \x01%s Aveți nevoie de trei parametri pentru a modifica skinul armei folosind comanda skin.!",pPlayerController->m_iszPlayerName());
+			sprintf(buf, " \x07 [Skins] \x01%s, you need four parameters to modify the knife skin using the skin command!",pPlayerController->m_iszPlayerName());
 			FnUTIL_ClientPrint(pPlayerController, 3, buf,nullptr, nullptr, nullptr, nullptr);
 			return;
 		}
@@ -344,7 +344,7 @@ CON_COMMAND_F(skin, "Skinuri", FCVAR_CLIENT_CAN_EXECUTE)
 	//pItemServices->GiveNamedItem(weapon_name->second.c_str());
 	// g_pGameRules->PlayerRespawn(static_cast<CCSPlayerPawn*>(pPlayerPawn));
 	//META_CONPRINTF( "called by %lld\n", steamid);
-	sprintf(buf, " \x04 [SKIN] \x01Număr skin modificat:%d sablon:%d uzura:%f",g_PlayerSkins[steamid][weaponId].m_nFallbackPaintKit,g_PlayerSkins[steamid][weaponId].m_nFallbackSeed,g_PlayerSkins[steamid][weaponId].m_flFallbackWear);
+	sprintf(buf, " \x07 [Skins] \x01Modified skin number:%d Template:%d Wear:%f",g_PlayerSkins[steamid][weaponId].m_nFallbackPaintKit,g_PlayerSkins[steamid][weaponId].m_nFallbackSeed,g_PlayerSkins[steamid][weaponId].m_flFallbackWear);
 	FnUTIL_ClientPrint(pPlayerController, 3, buf,nullptr, nullptr, nullptr, nullptr);
 }
 
